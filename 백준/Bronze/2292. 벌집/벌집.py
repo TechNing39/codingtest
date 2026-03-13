@@ -1,9 +1,13 @@
 N=int(input())
 
-last_number=1
-count=1
+layer=1
+max_room=1
 
-while N>last_number:
-    last_number+=6*count
-    count+=1
-print(count)
+while N>max_room:
+    max_room+=6*layer
+    layer+=1
+
+print(layer)
+
+
+    

@@ -1,46 +1,58 @@
-s_arr=[]
-b_arr=[]
-p=0
-h=0
+arr=[]
+check=[]
+ch1=True
+ch2=True
+ch3=True
+
+result=[]
+def Check(check):
+    if check=={1,2,3,4,5,6,7,8,9}:
+        return True
+    else:
+        return False
+
 for _ in range(9):
-    s_arr.append(list(map(int,input().split())))
+    arr.append(list(map(int,input().split())))
 
-for k in range(3):
-    for i in range(3):
-        for j in range(3):
-            b_arr.append(s_arr[p][h])
-            h=h+1
+for i in range(9):
+    for j in range(9):
+        check.append(arr[i][j])
+    ch1=Check(set(check))
+    check=[]
+    result.append(ch1)
 
-        h=0
-        if p<8:
-            p=p+1
-p=0
-h=3
-for k in range(3):
-    for i in range(3):
-        for j in range(3):
-            b_arr.append(s_arr[p][h])
-            h=h+1
+if result==[True,True,True,True,True,True,True,True,True]:
+    ch1=True
+else:
+    ch1=False
 
-        h=3
-        if p<8:
-            p=p+1
+result=[]
+for k in range(9):
+    for l in range(9):
+        check.append(arr[l][k])
+    ch2=Check(set(check))
+    check=[]
+    result.append(ch2)
+if result==[True,True,True,True,True,True,True,True,True]:
+    ch2=True
+else:
+    ch2=False
 
-p=0
-h=6
-for k in range(3):
-    for i in range(3):
-        for j in range(3):
-            b_arr.append(s_arr[p][h])
-            h=h+1
+result=[]
+for m in range(3):
+    for n in range(3):
+        for o in range(3):
+            for p in range(3):
+                check.append(arr[o+3*n][p+3*m])
+        ch3=Check(set(check))
+        check=[]
+        result.append(ch3)
+if result==[True,True,True,True,True,True,True,True,True]:
+    ch3=True
+else:
+    ch3=False
 
-        h=6
-        if p<8:
-            p=p+1
-
-
-
-if len(set(b_arr))==9:
+if ch1 and ch2 and ch3:
     print('YES')
 else:
     print('NO')
